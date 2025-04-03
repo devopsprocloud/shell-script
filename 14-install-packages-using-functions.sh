@@ -5,9 +5,9 @@ ID=$(id -u)
 VALIDATE() {
     if [ $1 -ne 0 ] #$1 value we have passed in VALIDATE command line
     then 
-        echo "Installing $2 is FAILED." #$2 value we have passed in VALIDATE command line
+        echo "$2 is FAILED." #$2 value we have passed in VALIDATE command line
     else 
-        echo "Installing $2 is SUCCESS." #$2 value we have passed in VALIDATE command line
+        echo "I$2 is SUCCESS." #$2 value we have passed in VALIDATE command line
     fi 
 }
 
