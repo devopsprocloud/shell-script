@@ -9,7 +9,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-echo -e "script started executing at $Y $TIMESTAMP $N"
+echo -e "script started executing at$Y $TIMESTAMP $N"
 
 VALIDATE() {
     if [ $1 -ne 0 ] #$1 value we have passed in VALIDATE command line
