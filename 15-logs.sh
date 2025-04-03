@@ -2,7 +2,7 @@
 
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
-LOGFILE=/tmp/($0-$TIMESTAMP.log)
+LOGFILE=/tmp/$0-$TIMESTAMP.log
 
 VALIDATE() {
     if [ $1 -ne 0 ] #$1 value we have passed in VALIDATE command line
