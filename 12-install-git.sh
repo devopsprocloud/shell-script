@@ -2,7 +2,7 @@
 
 ID=$(id -u)
 
-if [$ID -ne 0 ]
+if [ $ID -ne 0 ]
 then 
     echo "You are not a 'root' user"
     exit 1
