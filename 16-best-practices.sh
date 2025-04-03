@@ -14,7 +14,7 @@ VALIDATE() {
     then 
         echo "$2 is $R FAILED$N." #$2 value we have passed in VALIDATE command line
     else 
-        echo "I$2 is $G SUCCESS$N" .#$2 value we have passed in VALIDATE command line
+        echo "I$2 is $G SUCCESS$N" #$2 value we have passed in VALIDATE command line
     fi 
 }
 
