@@ -12,6 +12,6 @@ else
     then 
         echo "Installing Git is FAILED."
     else 
-        echo "Installing GIT is SUCCESS."
+        echo "Installing Git is SUCCESS."
     fi
 fi
