@@ -30,7 +30,7 @@ else
             yum install $package -y
             VALIDATE $? "Installing $package"
         else
-            echo "$package is already installed...$Y SKIPPING $N."
+            echo -e "$package is already installed...$Y SKIPPING $N."
         fi
     done
 fi
