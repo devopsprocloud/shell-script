@@ -18,14 +18,14 @@ then
     echo "Please run this command with root access"
     exit 1
 else 
-    dnf install git -y 
+    dnf install git -y &>> $LOGFILE
     VALIDATE $? "Installing GIT is..." 
     #We are passing the arguments for VALIDATE function. Here $?=$1 and "Installing GIT is"=$2
 
-    dnf install mysql -y
+    dnf install mysql -y &>> $LOGFILE
     VALIDATE $? "Installing MySQL is..."
     #We are passing the arguments for VALIDATE function. Here $?=$1 and "Installing MySQL is"=$2
-    dnf install nginx -y 
+    dnf install nginx -y &>> $LOGFILE
     VALIDATE $? "Installing NGINX is..."
     #We are passing the arguments for VALIDATE function. Here $?=$1 and "Installing NGINX is"=$2
 fi 
