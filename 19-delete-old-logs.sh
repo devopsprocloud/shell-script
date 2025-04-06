@@ -12,11 +12,11 @@ then
     echo -e "$R Directory $source_dir does not exist $N."
 fi
 
-# if [ -z "$(ls -A "$source_dir")" ];  
-# then
-#     echo -e "$R The directory $source_dir is Empty $N."
-#     exit 1
-# fi
+if [ -z "$(ls -A "$source_dir")" ];  
+then
+    echo -e "$R The directory $source_dir is Empty $N."
+    exit 1
+fi
 
 FILES_TO_DELETE=$(find $source_dir -type f -mtime +14 -name "*.log")
 
