@@ -1,16 +1,23 @@
 #!/bin/bash
 
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+
 THRESHOLD=1
 DISK_USAGE=$(df -hT | grep xvd)
 message=""
-USAGE_PERCENTAGE=$(df -hT | grep xvd | awk '{print $6F}' | cut -d % -f1)
-DISK_VOLUMES=$(df -hT | grep xvd | awk '{print $1F}')
+
+
 
 while IFS= read line
 do 
-    if [ $USAGE_PERCENTAGE -gt $THRESHOLD ]  
+   USAGE_PERCENTAGE=$(echo $line | awk '{print $6F}' | cut -d % -f1)
+   DISK_PARTITION=$(echo $line | awk '{print $1F}')
+   if [ $USAGE_PERCENTAGE -gt $THRESHOLD ]  
     then 
-        echo "High Disk Usage on $DISK_VOLUMES"
+        echo -e "High Disk Usage on $R $DISK_PARTITION: $USAGE_PERCENTAGE $N"
     fi
 done <<< $DISK_USAGE
 
