@@ -13,7 +13,7 @@ message=""
 
 while IFS= read line
 do 
-   USAGE_PERCENTAGE=$(echo $line | awk '{print $6F}' | cut -d % -f1)
+   USAGE_PERCENTAGE=$(echo $line | awk '{print $6F}')
    DISK_PARTITION=$(echo $line | awk '{print $1F}')
    if [ $USAGE_PERCENTAGE -gt $THRESHOLD ]  
     then 
