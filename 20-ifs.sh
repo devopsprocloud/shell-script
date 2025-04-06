@@ -18,4 +18,5 @@ do
     echo -e "password is: $G $passwd $N"
     echo -e "full name is: $G $user_fullname $N"
     echo -e "group ID is : $G $group_id $N"
+    echo -e "shell is: $G $user_id $N"
 done < $file
