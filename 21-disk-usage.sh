@@ -13,11 +13,11 @@ message=""
 
 while IFS= read line
 do 
-   USAGE_PERCENTAGE=$(echo $line | awk '{print $6F}')
+   USAGE_PERCENTAGE=$(echo $line | awk '{print $6F}' | cut -d % -f1)
    DISK_PARTITION=$(echo $line | awk '{print $1F}')
    if [ $USAGE_PERCENTAGE -gt $THRESHOLD ]  
     then 
-        echo -e "High Disk Usage on $R $DISK_PARTITION: $USAGE_PERCENTAGE $N"
+        echo -e "High Disk Usage on $R $DISK_PARTITION: $USAGE_PERCENTAGE $N%"
     fi
 done <<< $DISK_USAGE
 
