@@ -21,3 +21,5 @@ done <<< $DISK_USAGE
 
 echo -e "$message"
 
+sh mail.sh "DevOps Team" "Systems | High Disk Usage Alert" "High Disk Usage" "$message" "premsagar.eri@devopsprocloud.in" 
+
