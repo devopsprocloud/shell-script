@@ -10,6 +10,7 @@ source_dir="/tmp/shellscript-logs"
 if [ ! -d $source_dir ]
 then
     echo -e "$R Directory $source_dir does not exist $N."
+    exit 1
 fi
 
 if [ -z "$(ls -A "$source_dir")" ];  
@@ -22,7 +23,7 @@ FILES_TO_DELETE=$(find $source_dir -type f -mtime +14 -name "*.log")
 
 while IFS= read -r line 
 do 
-    echo "Deleting $line"
-    #rm -rf $line
+    echo -e "Deleting $Y $line $N"
+    rm -rf $line
 done <<< $FILES_TO_DELETE
 
