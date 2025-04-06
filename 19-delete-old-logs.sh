@@ -11,11 +11,13 @@ read source_dir
 if [ ! -d $source_dir ]
 then
     echo -e "$R Directory $source_dir does not exist $N."
+    exit 1
 fi
 
 if [ -z "$(ls -A "$source_dir")" ];  
 then
     echo -e "$R The $source_dir is Empty $N."
+    exit 1
 fi
 
 
