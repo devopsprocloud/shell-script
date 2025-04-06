@@ -1,17 +1,29 @@
 #!/bin/bash
 
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+
 echo "Please enter source directory"
 read source_dir
 
 if [ ! -d $source_dir ]
 then
-    echo "Source directory $source_dir does not exist."
+    echo -e "$R Directory $source_dir does not exist $N."
 fi
+
+if [ -z "$(ls -A "$source_dir")" ];  
+then
+    echo -e "$R The $source_dir is Empty $N."
+fi
+
 
 FILES_TO_DELETE=$(find $source_dir -type f -mtime +14 -name "*.log")
 
 while IFS= read -r line 
 do 
-    echo "Deleting $line "
+    echo -e "$Y Deleting $line $N"
     rm -rf $line
 done <<< $FILES_TO_DELETE
+
