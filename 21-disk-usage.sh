@@ -17,7 +17,7 @@ do
    DISK_PARTITION=$(echo $line | awk '{print $1F}')
    if [ $USAGE_PERCENTAGE -gt $THRESHOLD ]  
     then 
-        echo -e "High Disk Usage on $R $DISK_PARTITION: $USAGE_PERCENTAGE $N%"
+        message+="High Disk Usage on $R $DISK_PARTITION: $USAGE_PERCENTAGE $N% \n"
     fi
 done <<< $DISK_USAGE
 
