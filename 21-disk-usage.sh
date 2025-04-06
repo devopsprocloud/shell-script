@@ -9,8 +9,6 @@ THRESHOLD=1
 DISK_USAGE=$(df -hT | grep xvd)
 message=""
 
-
-
 while IFS= read line
 do 
    USAGE_PERCENTAGE=$(echo $line | awk '{print $6F}' | cut -d % -f1)
