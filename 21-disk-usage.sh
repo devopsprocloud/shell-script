@@ -8,7 +8,7 @@ DISK_VOLUMES=$(df -hT | grep xvd | awk '{print $1F}')
 
 while IFS= read line
 do 
-    if [ $USAGE_PERCENTAGE -gt 1 ]  
+    if [ $USAGE_PERCENTAGE -gt $THRESHOLD ]  
     then 
         echo "High Disk Usage on $DISK_VOLUMES"
     fi
