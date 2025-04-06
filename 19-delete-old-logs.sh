@@ -5,8 +5,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-echo "Please enter source directory"
-read source_dir
+source_dir="/tmp/shellscript-logs"
 
 if [ ! -d $source_dir ]
 then
@@ -14,11 +13,11 @@ then
     exit 1
 fi
 
-if [ -z "$(ls -A "$source_dir")" ];  
-then
-    echo -e "$R The directory $source_dir is Empty $N."
-    exit 1
-fi
+# if [ -z "$(ls -A "$source_dir")" ];  
+# then
+#     echo -e "$R The directory $source_dir is Empty $N."
+#     exit 1
+# fi
 
 FILES_TO_DELETE=$(find $source_dir -type f -mtime +14 -name "*.log")
 
