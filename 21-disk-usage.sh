@@ -15,11 +15,10 @@ do
    DISK_PARTITION=$(echo $line | awk '{print $1F}')
    if [ $USAGE_PERCENTAGE -gt $THRESHOLD ]  
     then 
-        message+="High Disk Usage on $R $DISK_PARTITION: $USAGE_PERCENTAGE $N% \n"
+        message+="High Disk Usage on $R $DISK_PARTITION: $USAGE_PERCENTAGE $N% <br>"
     fi
 done <<< $DISK_USAGE
 
 echo -e "$message"
 
 sh mail.sh "DevOps Team" "Systems | High Disk Usage Alert" "High Disk Usage" "$message" "premsagar.eri@devopsprocloud.in" 
-
