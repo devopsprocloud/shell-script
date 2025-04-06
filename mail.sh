@@ -11,6 +11,9 @@ FINAL_BODY=$(sed -e "s/TO_TEAM/$TO_TEAM/g" -e "s/ALERT_TYPE/$ALERT_TYPE/g" -e "s
 
 #echo "$FINAL_BODY" | s-nail -s "$(echo -e "$SUBJECT\nContent-Type: text/html")" "$TO_ADDRESS"
 
-echo "$FINAL_BODY" | s-nail -s "$(printf "%s\nContent-Type: text/html" "$SUBJECT")" "$TO_ADDRESS"
+#echo "$FINAL_BODY" | s-nail -s "$(printf "%s\nContent-Type: text/html" "$SUBJECT")" "$TO_ADDRESS"
+
+printf "%s\nContent-Type: text/html\n" "$SUBJECT" | s-nail -s "$(printf "%s\nContent-Type: text/html" "$SUBJECT")" "$TO_ADDRESS" <<< "$FINAL_BODY"
+
 
 #printf "%s\nContent-Type: text/html\n" "$SUBJECT" | s-nail -s "$FINAL_BODY" "$TO_ADDRESS"
