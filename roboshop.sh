@@ -1,14 +1,16 @@
 #!/bin/bash
 
-R="\e[31m"
+R="\e[91m"
 G="\e[32m"
 Y="\e[33m"
-B="\e[34m"
+B="\e[94m"
 N="\e[0m"
 
 AMI_ID=ami-09c813fb71547fc4f
 SG_ID=sg-04b7bd69af45641ab
 ZONE_ID=Z01399073MOD2DFZHUJNU
+
+echo -e "$Y Creating EC2 instances and updating Route 53 Records in AWS using Shell-Script$N"
 
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "web")
 
@@ -36,7 +38,7 @@ do
         PRIVATE_IP=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text)
     done
 
-    echo -e "$G $i $N: $G $PUBLIC_IP (Public IP) $N, $B $PRIVATE_IP (private IP) $N"
+    echo -e "$G $i$N: $B$PUBLIC_IP (Public IP)$N, $Y$PRIVATE_IP (private IP)$N"
 
     if [ "$i" == "web" ]; then
     RECORD_VALUE=$PUBLIC_IP
@@ -48,7 +50,7 @@ do
     --hosted-zone-id $ZONE_ID \
     --change-batch '
     {
-        "Comment": "Creating Route 53 Record"
+        "Comment": "Creating Route 53 Record for '$i'"
         ,"Changes": [{
         "Action"              : "UPSERT"
         ,"ResourceRecordSet"  : {
@@ -62,5 +64,3 @@ do
         }]
     }'
 done
-
-
