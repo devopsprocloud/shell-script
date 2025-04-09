@@ -91,7 +91,7 @@ then
 
     while IFS= read -r line # looping the files to delete and reading them line by line
     do 
-        echo -e "$Y Deleting:$N$Y$line$N"
+        echo -e "$R Deleting:$N$Y$line$N"
         #rm -rf $line
     done <<< $FILES_TO_DELETE
 else
