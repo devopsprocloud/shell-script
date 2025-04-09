@@ -25,7 +25,7 @@ USAGE (){
 
 if [ $# -eq 0 ]; 
 then
-    echo "ERROR: Please provide the options, find the below usage"
+    echo -e "$R ERROR:: Please provide the options, find the below usage$N"
     USAGE
     exit
 fi
