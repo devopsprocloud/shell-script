@@ -96,6 +96,10 @@ then
     done <<< $FILES_TO_DELETE
 else
     FILES_TO_ARCHIVE=$(find $source_dir -type f -mtime "+$time" -name "*.log")
+        if [ -z "$(ls -A "$FILES_TO_ARCHIVE")" ]
+        then
+            echo -e "$R ERROR::$N The source directory $Y$source_dir$N is empty or does not have any .log files to archive"
+        fi
 
     while IFS= read -r line # looping the files to delete and reading them line by line 
     do 
