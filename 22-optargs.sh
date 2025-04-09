@@ -91,7 +91,7 @@ then
         
         if [ -z "$FILES_TO_DELETE" ]; 
         then
-            echo -e "$R No .log files found to delete in $Y$source_dir$N."
+            echo -e "$R ERROR::$N No .log files found to delete in $Y$source_dir$N."
             exit 1
         fi
 
@@ -104,7 +104,7 @@ else
     FILES_TO_ARCHIVE=$(find $source_dir -type f -mtime "+$time" -name "*.log")
         if [ -z "$FILES_TO_ARCHIVE" ]
         then
-            echo -e "$R No .log files found to archive in $Y$source_dir$N."
+            echo -e "$R ERROR::$N No .log files found to archive in $Y$source_dir$N."
             exit 1
         fi
 
