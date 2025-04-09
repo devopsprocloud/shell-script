@@ -62,7 +62,7 @@ fi
 
 if [ -z "$source_dir" ] || [ -z "$action" ]; # -z denotes empty
 then    
-    echo "$R ERROR:: -s, and -a, options are mandotory $N"
+    echo -e "$R ERROR:: -s, and -a, options are mandotory $N"
     USAGE
     exit 1
 fi 
