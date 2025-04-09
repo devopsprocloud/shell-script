@@ -87,7 +87,7 @@ fi
 
 if [ "$action" == "delete" ];
 then
-    FILES_TO_DELETE=$(find $source_dir -type f -mtime "+$time" -name "*.log") # +$time is important
+    FILES_TO_DELETE=$(find $source_dir -maxdepth 1 -type f -mtime "+$time" -name "*.log") # +$time is important
         
         if [ -z "$FILES_TO_DELETE" ]; 
         then
