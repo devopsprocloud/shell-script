@@ -101,7 +101,7 @@ then
         rm -rf $line
     done <<< $FILES_TO_DELETE
 else
-    FILES_TO_ARCHIVE=$(find $source_dir -type f -mtime "+$time" -name "*.log")
+    FILES_TO_ARCHIVE=$(find $source_dir -maxdepth 1 -type f -mtime "+$time" -name "*.log")
         if [ -z "$FILES_TO_ARCHIVE" ]
         then
             echo -e "$R ERROR:: No ".log" files found to archive in$N $Y$source_dir$N."
