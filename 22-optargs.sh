@@ -91,7 +91,7 @@ then
 
     while IFS= read -r line # looping the files to delete and reading them line by line
     do 
-        echo -e "$Y Deleting:$N $B$line$N"
+        echo -e "$Y Deleting:$N $B $line $N"
         rm -rf $line
     done <<< $FILES_TO_DELETE
 else
@@ -99,7 +99,7 @@ else
 
     while IFS= read -r line # looping the files to delete and reading them line by line 
     do 
-        echo -e "$G ARCHIVING:$N $B$line$N"
+        echo -e "$G ARCHIVING:$N $B $line $N"
         zip -r "$destination_dir/archive.zip" $line
     done <<< $FILES_TO_ARCHIVE
 fi
