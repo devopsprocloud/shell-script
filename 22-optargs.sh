@@ -99,7 +99,7 @@ else
 
     while IFS= read -r line # looping the files to delete and reading them line by line 
     do 
-        echo -e "$G ARCHIVING:$N$Y$line$N"
+        echo -e "$G Archiving:$N$Y$line$N"
         #zip -r "$destination_dir/archive.zip" $line
     done <<< $FILES_TO_ARCHIVE
 fi
